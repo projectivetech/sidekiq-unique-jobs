@@ -17,8 +17,8 @@ module SidekiqUniqueJobs
         @filter         = h(params[:filter] || "*")
         @filter         = "*" if @filter == ""
         @count          = h(params[:count] || 100).to_i
-        @current_cursor = h(params[:cursor])
-        @prev_cursor    = h(params[:prev_cursor])
+        @current_cursor = h(params[:cursor]).to_i
+        @prev_cursor    = h(params[:prev_cursor]).to_i
         @total_size, @next_cursor, @changelogs = changelog.page(
           cursor: @current_cursor,
           pattern: @filter,
@@ -37,8 +37,8 @@ module SidekiqUniqueJobs
         @filter         = h(params[:filter] || "*")
         @filter         = "*" if @filter == ""
         @count          = h(params[:count] || 100).to_i
-        @current_cursor = h(params[:cursor])
-        @prev_cursor    = h(params[:prev_cursor])
+        @current_cursor = h(params[:cursor]).to_i
+        @prev_cursor    = h(params[:prev_cursor]).to_i
 
         @total_size, @next_cursor, @locks = digests.page(
           cursor: @current_cursor,
@@ -53,8 +53,8 @@ module SidekiqUniqueJobs
         @filter         = h(params[:filter] || "*")
         @filter         = "*" if @filter == ""
         @count          = h(params[:count] || 100).to_i
-        @current_cursor = h(params[:cursor])
-        @prev_cursor    = h(params[:prev_cursor])
+        @current_cursor = h(params[:cursor]).to_i
+        @prev_cursor    = h(params[:prev_cursor]).to_i
 
         @total_size, @next_cursor, @locks = expiring_digests.page(
           cursor: @current_cursor,
